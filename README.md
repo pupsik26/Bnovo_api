@@ -10,13 +10,15 @@ php artisan migrate
 ```
 api достпно по хоту localhost:8080
 
+В папке postman лежит json коллекция для Postman
+
 Получить список гостей <br>
 ```GET /api/guest```
 
 Получить гостя по id <br>
 ```GET /api/guest/{id}```
 
-Создать гостя
+Создать гостя <br>
 ```POST /api/guest```
 
 Обновить данные гостя <br>
