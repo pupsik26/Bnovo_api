@@ -20,7 +20,7 @@ class ApiResponseClass
         throw new HttpResponseException(response()->json(["message"=> $message], 500));
     }
 
-    public static function sendResponse($result, $message = '', $code = 200): \Illuminate\Http\JsonResponse
+    public static function sendResponse($result, $message = '', $code = 200, $time = 0, $memory = 0): \Illuminate\Http\JsonResponse
     {
         $response = [
             'success' => true,
@@ -29,6 +29,9 @@ class ApiResponseClass
         if(!empty($message)){
             $response['message'] = $message;
         }
-        return response()->json($response, $code);
+        return response()->json($response, $code)->withHeaders([
+            'X-Debug-Time' => $time,
+            'X-Debug-Memory' => $memory,
+        ]);
     }
 }
